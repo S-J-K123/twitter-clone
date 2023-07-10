@@ -14,26 +14,27 @@ export default function SignupModal() {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-  const [currentUser, setCurrentUser] = useState("")
+ 
 
 const router = useRouter()
 
 
-  async function handleSignUp(){
+async function handleSignUp() {
   const userCredentials = await createUserWithEmailAndPassword(
-  auth,
-  email,
-  password
+    auth,
+    email,
+    password
   );
 
-  await updateProfile(auth, currentUser, {
+  await updateProfile(userCredentials.user, {
     displayName: name,
-    photoUrl: `./assets/profilePictures/pfp${Math.ceil(Math.random() * 6)}.png`
-  })
+    photoURL: `./assets/profilePictures/pfp${Math.ceil(
+      Math.random() * 6
+    )}.png`,
+  });
 
-  router.reload()
-
-  }
+  router.reload();
+}
 
   async function handleGuestSignIn() {
     await signInWithEmailAndPassword(auth, "guest11100@gmail.com", "anything")
