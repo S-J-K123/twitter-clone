@@ -59,12 +59,12 @@ export default function Tweet({ data, id }) {
 
   useEffect(() => {
     if (!id) return;
-
+  
     const unsubscribe = onSnapshot(doc(db, "posts", id), (doc) => {
-      setLikes(doc.data()?.likes);
-      setComments(doc.data()?.comments)
+      setLikes(doc.data()?.likes || []); 
+      setComments(doc.data()?.comments || []) 
     });
-
+  
     return unsubscribe;
   }, []);
 

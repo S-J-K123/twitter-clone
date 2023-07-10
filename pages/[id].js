@@ -1,8 +1,10 @@
-import PostFeed from "@/components/Postfeed";
-import Sidebar from "@/components/Sidebar";
-import Trending from "@/components/Trending";
-import Tweet from "@/components/Tweet";
-import { db } from "@/firebase";
+// import PostFeed from "@/components/Postfeed";
+
+// import Tweet from "@/components/Tweet";
+
+import SideBar from "@component/components/SideBar";
+import Trending from "@component/components/Trending";
+import { db } from "@component/firebase";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
@@ -42,7 +44,7 @@ export default function CommentsPage({ tweetData }) {
     
     "
       >
-        <Sidebar />
+        <SideBar/>
         <div
           className="sm:ml-16 xl:ml-[350px] max-w-2xl flex-grow
         border-gray-700 border-x
