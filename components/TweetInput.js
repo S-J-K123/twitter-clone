@@ -1,4 +1,4 @@
-import { db } from "@component/firebase";
+import { db, storage } from "@component/firebase";
 import { openLoginModal } from "@component/redux/modalSlice";
 import {
   CalendarIcon,
