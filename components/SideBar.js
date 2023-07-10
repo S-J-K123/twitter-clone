@@ -1,4 +1,5 @@
 import { auth } from "@component/firebase";
+import { closeLoginModal, closeSignupModal } from "@component/redux/modalSlice";
 import { signOutUser } from "@component/redux/userSlice";
 import {
   HomeIcon,
@@ -22,6 +23,8 @@ export default function SideBar() {
   async function handleSignOut() {
     await signOut(auth);
     dispatch(signOutUser());
+    dispatch(closeSignupModal())
+    dispatch(closeLoginModal())
   }
 
   return (
